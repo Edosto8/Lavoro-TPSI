@@ -1,0 +1,57 @@
+@startuml
+
+class Libro {
+- isbn: String
+- titolo: String
+- autore: String
+- anno: int
+- disponibile: boolean
+--
++ Libro(isbn: String, titolo: String, autore: String, anno: int)
++ getIsbn(): String
++ isDisponibile(): boolean
++ setDisponibile(disponibile: boolean)
+}
+
+class Utente {
+- id: String
+- nome: String
+- cognome: String
+--
++ Utente(id: String, nome: String, cognome: String)
++ getId(): String
+}
+
+class Prestito {
+- libro: Libro
+- utente: Utente
+- dataInizio: LocalDate
+- dataFine: LocalDate
+--
++ Prestito(libro: Libro, utente: Utente)
++ getLibro(): Libro
++ getUtente(): Utente
+}
+
+class Biblioteca {
+- libri: List<Libro>
+- utenti: List<Utente>
+- prestiti: List<Prestito>
+--
++ aggiungiLibro(libro: Libro)
++ registraUtente(utente: Utente)
++ prestaLibro(isbn: String, idUtente: String): boolean
++ restituisciLibro(isbn: String): boolean
++ getPrestitiAttivi(): List<Prestito>
+}
+
+
+
+Biblioteca "1" --> "*" Libro
+Biblioteca "1" --> "*" Utente
+Biblioteca "1" --> "*" Prestito
+
+Prestito "1" --> "1" Libro : usa >
+Prestito "1" --> "1" Utente : assegnato a >
+
+@enduml
