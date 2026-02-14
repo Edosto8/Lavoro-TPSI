@@ -20,9 +20,6 @@ public class Utente {
     public String getId() {
         return id;
     }
-
-    @Override
-    public String toString() {
-        return nome + " " + cognome + " (ID: " + id + ")";
-    }
 }
+
+

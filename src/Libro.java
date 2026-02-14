@@ -3,13 +3,14 @@ public class Libro {
     private String titolo;
     private String autore;
     private int anno;
-    private boolean disponibile = true;
+    private boolean disponibile;
 
     public Libro(String isbn, String titolo, String autore, int anno) {
         this.isbn = isbn;
         this.titolo = titolo;
         this.autore = autore;
         this.anno = anno;
+        this.disponibile = true;
     }
 
     public String getIsbn() {
@@ -32,8 +33,8 @@ public class Libro {
         return disponibile;
     }
 
-    public void setDisponibile(boolean disponibile){
-        this.disponibile= disponibile;
-
+    public void setDisponibile(boolean disponibile) {
+        this.disponibile = disponibile;
     }
 }
+
